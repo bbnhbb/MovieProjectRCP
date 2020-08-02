@@ -1,13 +1,145 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto Mono", monospace;
+  background: #6190e8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #6190e8,
+    #a7bfe8
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #6190e8,
+    #a7bfe8
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.search-container {
+  margin-top: 30px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form label {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #ffff;
+}
+
+.search-form input {
+  font-size: 25px;
+  font-weight: 500;
+  width: 33rem;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #ffc3a0 !important;
+  border-color: #ffc3a0 !important;
+  color: #696969 !important;
+  font-weight: 600 !important;
+}
+
+.card-body h5 {
+  font-size: 2rem;
+}
+
+.detail {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.register-container {
+  min-width: 100%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-container label {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #ffff;
+}
+
+.register-container a {
+  width: 50%;
+}
+
+.register-container a {
+  font-size: 18px;
+  color: #fff;
+}
+
+.login-container {
+  display: flex;
+  height: 95vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login-form {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+/* .search-userdetail {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #ffff;
+}
+
+.search-userdetail {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #ffff;
+  position: absolute;
+  right: 40px;
+  top: 10px;
+} */
+
+.search-userdetail span {
+  color: #ffc3a0;
+}
+@media only screen and (max-width: 480px) {
+  /* For mobile phones: */
+  .search-form input {
+    font-size: 16px;
+    font-weight: 500;
+    width: 75vw;
+  }
+
+  .search-form label {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ffff;
+    text-align: center;
+  }
+
+  .result-container {
+    margin-left: 6%;
+  }
+
+  .register-container label {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ffff;
+    text-align: center;
+  }
+
+  .login-form {
+    width: 80%;
+  }
 }
