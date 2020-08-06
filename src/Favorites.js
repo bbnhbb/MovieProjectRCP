@@ -5,8 +5,8 @@ function Favorites() {
   const [{ favorites }, dispatch] = useStateValue();
 
   return favorites.map(({ Title, imdbID }) => (
-    <div class="card mt-4">
-      <div class="card-body">
+    <div className="card mt-4">
+      <div className="card-body">
         {Title}
         <small className="ml-4">{imdbID}</small>
       </div>

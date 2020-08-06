@@ -18,7 +18,7 @@ export default class Search extends Component {
     console.log(this.state.searchText);
     const apiKey = "ea9e7b56";
     const { searchText } = this.state;
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchText}`;
+    const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchText}`;
     fetch(url)
       .then((r) => r.json())
       .then(({ Search, Response }) => {

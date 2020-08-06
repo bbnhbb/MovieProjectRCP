@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import firebase from "./firebase";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
@@ -13,6 +13,19 @@ function Navbar() {
       };
     });
   }, []);
+
+  function onLogoutClicked() {
+    try {
+      firebase.logout().then((res) => {
+        console.log("logout res");
+        // replace is undifined
+        // props.history.replace("/");
+        console.log(res);
+      });
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   return (
     <React.Fragment>
@@ -47,18 +60,20 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav mr-auto">
-              <li class="nav-item">
-                <Link class="nav-link" to="/Search">
+              <li className="nav-item">
+                <Link className="nav-link" to="/Search">
                   Search
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/Favorites">
+              <li className="nav-item">
+                <Link className="nav-link" to="/Favorites">
                   Favorites
                 </Link>
               </li>
               <li className="nav-item ml-2">
-                <a className="nav-link">Logout</a>
+                <a className="nav-link" onClick={onLogoutClicked}>
+                  Logout
+                </a>
               </li>
             </ul>
           </div>

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Detail from "./Detail";
 import FirstPage from "./FirstPage";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Search from "./Search";
 import Register from "./Register";
 import Login from "./Login";
@@ -10,6 +9,7 @@ import Navbar from "./Navbar";
 import { StateProvider } from "./StateProvider";
 import reducer, { initialState } from "./reducer";
 import Favorites from "./Favorites";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
   const LoginContainer = () => (

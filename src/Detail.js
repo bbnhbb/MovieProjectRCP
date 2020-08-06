@@ -6,7 +6,7 @@ function Detail(props) {
   useEffect(() => {
     const { match } = props;
     const apiKey = "ea9e7b56";
-    const url = `http://www.omdbapi.com/?apikey=${apiKey}&i=${match.params.id}`;
+    const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${match.params.id}`;
 
     fetch(url)
       .then((res) => res.json())
