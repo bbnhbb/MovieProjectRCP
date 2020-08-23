@@ -13,17 +13,10 @@ const reducer = (state, action) => {
       };
 
     case "REMOVE_FROM_FAVORITE":
-      // this.setState((preState) => ({
-      //   ...preState,
-      //   favorites: preState.favorites.filter(
-      //     (res) => res.imdbID !== fav.imdbID
-      //   ),
-      // }));
       const initialFavorites = state.favorites;
       const newFavorites = initialFavorites.filter(
         (res) => res.imdbID !== action.favorites.imdbID
       );
-
       return { ...state, favorites: newFavorites };
 
     default:

@@ -7,21 +7,32 @@ function Register(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [showModel, setShowModel] = useState(false);
+  // const [showProgressBar, setShowProgressBar] = useState(false);
 
   async function onRegisterClicked(e) {
     e.preventDefault();
+    // toggleShowProgressBar();
     try {
       await firebase.register(userName, email, password);
       toggleModal();
-      props.history.replace("/Search");
     } catch (e) {
       console.log(e);
     }
   }
 
   const toggleModal = () => {
-    setShowModel(true);
+    setShowModel((value) => !value);
   };
+
+  const redirectToApplication = () => {
+    setShowModel((value) => !value);
+    props.history.replace("/Search");
+    // toggleShowProgressBar();
+  };
+
+  // const toggleShowProgressBar = () => {
+  //   setShowProgressBar((value) => !value);
+  // };
 
   return (
     <div className="login-container">
@@ -71,11 +82,42 @@ function Register(props) {
       {showModel ? (
         <Model>
           <div>
-            <h1>You are register successfully</h1>
-            <div className="button">Ok</div>
+            <div classname="modal" tabindex="-1" role="dialog">
+              <div classname="modal-dialog" role="document">
+                <div classname="modal-content">
+                  <div classname="modal-body">
+                    <p>You have registered successfully.</p>
+                  </div>
+                  <div classname="modal-footer">
+                    <button
+                      type="button"
+                      classname="btn btn-primary"
+                      onClick={redirectToApplication}
+                    >
+                      Get In.
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </Model>
       ) : null}
+
+      {/* {showProgressBar ? (
+        <Model>
+          <div className="progress">
+            <div
+              className="progress-bar progress-bar-striped progress-bar-animated"
+              role="progressbar"
+              aria-valuenow="100"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              style="width: 100%"
+            ></div>
+          </div>
+        </Model>
+      ) : null} */}
     </div>
   );
 }

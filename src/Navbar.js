@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 import firebase from "./firebase";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
 
 function Navbar(props) {
   const [userInfo, setUserInfo] = useState(null);
+  let history = useHistory();
 
   useEffect(() => {
     console.log(firebase.getCurrentUsername());
@@ -18,8 +25,7 @@ function Navbar(props) {
     try {
       firebase.logout().then((res) => {
         console.log("logout res");
-        // replace is undifined
-        // props.history.replace("/");
+        history.push("/");
         console.log(res);
       });
     } catch (e) {
